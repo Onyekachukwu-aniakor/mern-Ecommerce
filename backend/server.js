@@ -19,7 +19,7 @@ import adminOrderRoutes from './routes/adminOrderRoutes.js'
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({origin: "https://mern-ecommerce-6nr4.vercel.app/", credentials: true }));
 
 dotenv.config();
 connectDB();
