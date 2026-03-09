@@ -37,7 +37,7 @@ const FilterSidebar = () => {
             minPrice : params.minPrice || 0,
             maxPrice: params.maxPrice || 800,
         });
-        setPriceRange([0, params.maxPrice || 800])
+        setPriceRange([0, params.maxPrice || 120])
 
     },[searchParams]);
     const handleFilterChange = (e)=>{
@@ -57,6 +57,7 @@ const FilterSidebar = () => {
         updateURLParams(newFilters);
 
     };
+    //this updates the url when you click
     const updateURLParams = (newFilters)=> {
     const params = new URLSearchParams();
     // {Category : 'Top Wear', size:['XL', 'S']}
@@ -70,6 +71,7 @@ const FilterSidebar = () => {
         }
         });
         setSearchParams(params);
+        //values will be like  below '//'
         navigate(`?${params.toString()}`) //?Category=Bottom+Wear&size=XS%2CS
     }
 
@@ -85,6 +87,7 @@ const FilterSidebar = () => {
     <div className='p-4'>
         <h3 className="text-xl font-medium text-gray-800 mb-4">Filter</h3>
         {/*  Category filter */}
+        {/* 'checked' equals the filter to the current category */}
         <div className="mb-6">
             <label className='block text-gray-600 font-medium mb-2'>Category</label>
             {categories.map((category)=>(
@@ -190,7 +193,7 @@ const FilterSidebar = () => {
               min={0}
               value={priceRange[1]}
               onChange={handlePriceChange}
-              max={800}
+              max={120}
               className='w-full h-2  bg-gray-300 rounded-lg appearance-none cursor-pointer' />
             <div className='flex text-gray-600 justify-between mt-2'>
                     <span>£0</span>

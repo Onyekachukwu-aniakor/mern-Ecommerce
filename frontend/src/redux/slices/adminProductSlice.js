@@ -7,7 +7,7 @@ const USER_TOKEN =`Bearer ${localStorage.getItem('userToken')}`
 // async thunk to fetch admin products
 
 export const fetchAdminProducts = createAsyncThunk('adminProducts/fetchProducts', async ()=>{
-const response = await axios.get(`${API_URL}/api/products`, 
+const response = await axios.get(`${API_URL}/api/admin/products`, 
     {
            headers: {
                 Authorization : USER_TOKEN,
@@ -33,7 +33,7 @@ export const createProduct = createAsyncThunk('adminProducts/createProduct', asy
 
 // async thunk function to update existing product
 export const updateProduct = createAsyncThunk('adminProducts/updateProduct', async ({id, productData})=>{
-const response = await axios.put(`${API_URL}/api/products/${id}`, productData,
+const response = await axios.put(`${API_URL}/api/admin/products/${id}`, productData,
     {
            headers: {
                 Authorization : USER_TOKEN,
@@ -46,7 +46,7 @@ return response.data;
 
 // async thunk function to delete existing product
 export const deleteProduct = createAsyncThunk('adminProducts/deleteProduct', async(id)=>{
-    await axios.delete(`${API_URL}/api/products/${id}`, 
+    await axios.delete(`${API_URL}/api/admin/products/${id}`, 
     {
            headers: {
                 Authorization : USER_TOKEN,

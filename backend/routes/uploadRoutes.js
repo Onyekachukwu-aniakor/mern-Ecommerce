@@ -18,7 +18,7 @@ cloudinary.config({
 
 
 //set up multer using memory storage //handles multipart formdata and uploading of files
-const storage = multer.memoryStorage(); //it tells multer to store the uploaded pix directly in the lab instead of sending it in the cloud system
+const storage = multer.memoryStorage(); //it tells multer to store the uploaded pix directly in the ram instead of sending it in the cloud system
 const upload = multer({storage});
 router.post('/', upload.single('image'), async (req,res) => {
     try {

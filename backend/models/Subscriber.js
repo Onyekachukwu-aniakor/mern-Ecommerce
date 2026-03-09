@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const subscriberSchema = new mongoose.Schema({
+const subscribeSchema = new mongoose.Schema({
     email:{
         type:String,
         required: true,
@@ -14,5 +14,5 @@ const subscriberSchema = new mongoose.Schema({
     },
 });
 
-const Subscriber = mongoose.model('Subscriber', subscriberSchema);
+const Subscriber = mongoose.model('Subscribe', subscribeSchema);
 export default Subscriber;

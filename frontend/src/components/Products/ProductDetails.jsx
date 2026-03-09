@@ -139,11 +139,13 @@ const ProductDetails = ({productId}) => {
 
 
   return (
+    // thumbnails are the small pictures by the side of the main image
     <div className='p-6'>
         {selectedProduct && (
         <div className='max-w-6xl mx-auto p-8 bg-white rounded-lg '>
             <div className='flex flex-col md:flex-row'>
-                {/* Left Thumbnails */}
+                {/* Left Thumbnails */} 
+                
                 <div className='hidden md:flex flex-col space-y-4 mr-6 '>
                     {selectedProduct.images.map((image,index)=>(
                         <img key={index} src={image.url} alt={image.altText|| `Thumbnail ${index}`} 

@@ -32,6 +32,7 @@ router.post('/', async (req,res) => {
         let cart = await getCart(userId, guestId);
         // if cart exist, update it
         if(cart){
+            //this is to make sure cart contains product is, size and color
             const productIndex = cart.products.findIndex( (p)=>
             p.productId.toString()=== productId && 
             p.size === size &&
@@ -112,10 +113,10 @@ router.put('/', async (req,res) => {
 
             if(productIndex > -1){
                 // update the quantity
-                if(quantity >0){
+                if(quantity > 0){
                     cart.products[productIndex].quantity = quantity; 
                 }else {
-                    cart.products.splice(productIndex,1); //remove product if qty is 0
+                    cart.products.splice(productIndex,1); //removes product if qty is 0
                 }
                 cart.totalPrice = cart.products.reduce(
                 (acc, item)=> acc + (item.price * item.quantity), 
@@ -148,15 +149,15 @@ router.delete('/', async (req,res) => {
         if(!cart) return res.status(404).json({message:'Cart not found'})
             //get product index
          const productIndex = cart.products.findIndex( (p)=>
-            p.productId.toString()=== productId && 
+            p.productId.toString() === productId && 
             p.size === size &&
             p.color === color
             );
 
              if(productIndex > -1){
-                    cart.products.splice(productIndex,1); 
+                    cart.products.splice(productIndex, 1); 
                     cart.totalPrice = cart.products.reduce(
-                (acc, item)=> acc + (item.price * item.quantity),0);
+                (acc, item)=> acc + (item.price * item.quantity), 0);
                 await cart.save();
             res.status(200).json(cart);
                     
@@ -206,6 +207,7 @@ router.get('/', async (req,res) => {
         const guestCart= await Cart.findOne({guestId});
         const userCart= await Cart.findOne({user : req.user._id});
         if(guestCart){
+            //check if product is present in cart
             if(guestCart.products.length === 0) {
                 return res.status(400).json({message:'Guest cart is empty'});
             }

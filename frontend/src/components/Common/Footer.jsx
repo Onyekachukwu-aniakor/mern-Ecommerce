@@ -25,20 +25,20 @@ const Footer = () => {
             <div>
                 <h3 className='text-lg text-gray-800 mb-4'>Shop</h3>
                 <ul className='space-y-2 text-gray-600'>
-                    <li><Link to='#' className='hover:text-gray-500 transition-colors'>Men's Top wear</Link></li>
-                    <li><Link to='#' className='hover:text-gray-500 transition-colors'>Women's Top wear</Link></li>
-                    <li><Link to='#' className='hover:text-gray-500 transition-colors'>Men's Bottom wear</Link></li>
-                    <li><Link to='#' className='hover:text-gray-500 transition-colors'>Women's Bottom wear</Link></li>
+                    <li><Link to='/collections/all?gender=Men' className='hover:text-gray-500 transition-colors'>Men</Link></li>
+                    <li><Link to='/collections/all?gender=Women' className='hover:text-gray-500 transition-colors'>Women</Link></li>
+                    <li><Link to='/collections/all?category=Top Wear' className='hover:text-gray-500 transition-colors'>Top wear</Link></li>
+                    <li><Link to='/collections/all?category=Bottom Wear' className='hover:text-gray-500 transition-colors'>Bottom wear</Link></li>
                 </ul>
             </div>
             {/* Support Links */}
             <div>
                 <h3 className='text-lg text-gray-800 mb-4'>Support</h3>
                 <ul className='space-y-2 text-gray-600'>
-                    <li><Link to='#' className='hover:text-gray-500 transition-colors'>Contact Us</Link></li>
-                    <li><Link to='#' className='hover:text-gray-500 transition-colors'>About Us</Link></li>
-                    <li><Link to='#' className='hover:text-gray-500 transition-colors'>FAQs</Link></li>
-                    <li><Link to='#' className='hover:text-gray-500 transition-colors'>Features</Link></li>
+                    <li className='hover:text-gray-500 transition-colors'>Contact Us</li>
+                    <li className='hover:text-gray-500 transition-colors'>About Us</li>
+                    <li className='hover:text-gray-500 transition-colors'>FAQs</li>
+                    <li className='hover:text-gray-500 transition-colors'>Features</li>
                 </ul>
             </div>
             {/* Follow Us */}
@@ -46,8 +46,8 @@ const Footer = () => {
                 <h3 className='text-lg text-gray-800 mb-4'>Follow Us</h3>
                 <div className='space-x-4 mb-6 items-center flex'>
                     <a href="https://www.facebook.com" target='_blank' rel='noopener noreferrer' className='hover:text-gray-500'><TbBrandMeta className='w-6 h-6'/></a>
-                    <a href="https://www.facebook.com" target='_blank' rel='noopener noreferrer' className='hover:text-gray-500'><IoLogoInstagram className='w-6 h-6'/></a>
-                    <a href="https://www.facebook.com" target='_blank' rel='noopener noreferrer' className='hover:text-gray-500'><RiTwitterXLine className='w-5 h-5'/></a>
+                    <a href="https://www.instagram.com" target='_blank' rel='noopener noreferrer' className='hover:text-gray-500'><IoLogoInstagram className='w-6 h-6'/></a>
+                    <a href="https://www.twitter.com" target='_blank' rel='noopener noreferrer' className='hover:text-gray-500'><RiTwitterXLine className='w-5 h-5'/></a>
                 </div>
                 <p className='text-gray-500'>Call Us</p>
                 <p><FiPhoneCall className='inline-block mr-2'/>

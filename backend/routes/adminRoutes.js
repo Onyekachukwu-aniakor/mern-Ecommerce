@@ -26,7 +26,7 @@ router.get('/', protect,admin, async (req,res) => {
 //@Desc add a new user(Admin only)
 //@access private
 router.post('/', protect,admin, async (req,res) => {
-    const{name,email,password,role}= req.body;
+    const{name,email, password, role}= req.body;
     try {
         const user = await User.findOne({email}); 
         if (user){
@@ -42,7 +42,7 @@ router.post('/', protect,admin, async (req,res) => {
         });
 
         await user.save();
-        res.status(201).json({message:'user created successfully'})
+        res.status(201).json({message:'user created successfully', user})
         
     } catch (error) {
         console.error( error);

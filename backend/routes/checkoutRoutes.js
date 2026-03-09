@@ -51,6 +51,7 @@ router.put('/:id/pay',protect, async (req,res) => {
         if(!checkout){
             return res.status(404).json({message : 'checkout not found'});
         }
+        // if checkout is true
         if(paymentStatus === 'paid') {
             checkout.isPaid = true;
             checkout.paymentStatus = paymentStatus;
@@ -94,12 +95,12 @@ router.post('/:id/finalize', protect, async (req,res) => {
                     paymentDetails: checkout.paymentDetails,
                 });
 
-                //Mark the checkout as finalized
+                //Mark the checkout as finalized to prevent duplicate orders
                 checkout.isFinalized = true,
                 checkout.finalizedAt = Date.now();
                 await checkout.save();
 
-                // delete the cart associate with the user
+                //once order is finalize, delete the cart associate with the user
                 await Cart.findOneAndDelete({user : checkout.user });
                 res.status(201).json(finalOrder);
              }else if(checkout.isFinalized){

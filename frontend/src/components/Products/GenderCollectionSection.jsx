@@ -7,7 +7,7 @@ const GenderCollectionSection = () => {
   return (
     <section className='py-16 px-4 lg:px-0 ml-4 mr-4 '>
       <div className='container mx-auto flex flex-col md:flex-row gap-8 '>
-        {/* womwns collection */}
+        {/* womens collection */}
         <div className='relative flex-1'>
           <img src={womensCollectionImage} alt="womens collection img" className='w-full h-[700px] object-cover' />
           <div className='absolute bottom-8 left-8 bg-white bg-opacity-90 p-4 '>

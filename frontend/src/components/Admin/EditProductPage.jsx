@@ -44,6 +44,7 @@ const EditProductPage = () => {
     },[selectedProduct]);
 
     const handleChange= (e)=>{
+        // destructure name and value
         const {name,value}= e.target;
         setProductData((prevData)=>({...prevData, [name]:value}))
 
@@ -172,7 +173,7 @@ const EditProductPage = () => {
                 <div className="flex gap-4 mt-4">
                     {productData.images.map((image,index)=>(
                         <div key={index}>
-                            <img src={image.url} alt="product images" className='w-20 h-20 object-cover rounded-md shadow-md' />
+                            <img src={image.url} alt={image.altText ||"product images"} className='w-20 h-20 object-cover rounded-md shadow-md' />
                         </div>
 
                     ))}

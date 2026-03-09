@@ -108,6 +108,7 @@ const handleFinalizeCheckout = async(checkoutId)=>{
         },
     },
      );
+     
      navigate('/order-confirmation')
     } catch (error) {
        console.error(error) 

@@ -37,7 +37,7 @@ const [formData, setFormData] = useState({
     name :'',
     email:'',
     password:'',
-    role : 'customer' //default role
+    role : 'customer', //default role
 });
 
 const handleChange= (e)=>{

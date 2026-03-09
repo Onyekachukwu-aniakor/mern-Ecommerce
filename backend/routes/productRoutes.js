@@ -14,6 +14,8 @@ router.post('/',protect,admin,async (req,res) => {
     try {
         const{name,description,price, discountPrice, countInStock,category,brand, sizes, colors, collections, material, gender,images, isFeatured, isPublished, tags, dimensions, weight, sku}=req.body;
 
+        //create new product instance
+
         const product = new Product({name,description,price, discountPrice, countInStock,category,brand, sizes, colors, collections, material, gender,images, isFeatured, isPublished, tags, dimensions, weight, sku, user:req.user._id, //refers to the admin user id who creates the product
             });
 
@@ -57,7 +59,7 @@ router.put('/:id',protect,admin,async (req,res) =>{
         //Find product by ID
         const product = await Product.findById(req.params.id);
         if(product){
-            //update the product fields
+            //update the product fields with new value or|| old value
             product.name= name || product.name;
             product.description= description || product.description;
             product.price= price || product.price;
@@ -105,7 +107,7 @@ router.delete('/:id', protect,admin, async (req,res) => {
 
         //find the product in the database using the ID
         const product = await Product.findById(req.params.id);
-        if(product){
+        if(product ){
             // remove it from database
             await product.deleteOne();
             res.json({message:'Product Deleted successfully'})

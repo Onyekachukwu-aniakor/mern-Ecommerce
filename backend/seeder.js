@@ -24,7 +24,7 @@ const seedData = async () => {
         //create a default admin user
 
         const createdUser = await User.create({
-            name : 'admin User',
+            name : 'Admin User',
             email : 'carlosaniakorchukwu@gmail.com',
             password: "Carlos.042",
             role:'admin'
@@ -32,6 +32,7 @@ const seedData = async () => {
 
         // assign default user id to each product
         const userID = createdUser._id;
+        //append the userID
         const sampleProducts = products.map((product)=>{
             return {...product, user: userID};
         });

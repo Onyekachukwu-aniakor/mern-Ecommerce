@@ -5,9 +5,13 @@ import axios from 'axios'
 
 const NewArrivals = () => {
     const scrollRef = useRef(null);
+    // isDragging checks if the container can be scrolled
     const [isDragging,setIsDragging] = useState(false);
+    // starting value of X axis when the user drags and scrolls the container
     const [startX, setStartX]= useState(0);
+    //scrollLeft is the initial scroll position of the container
     const [scrollLeft, setScrollLeft]= useState(false);
+    //CanScrollRight determines if the container can scroll to the right
     const [canScrollRight, setCanScrollRight]= useState(true);
     const [canScrollLeft, setCanScrollLeft] = useState(false);
 
@@ -32,6 +36,7 @@ const NewArrivals = () => {
     };
     const handleMouseMove = (e)=>{
         if(!isDragging) return;
+        // pageX give the horizontal positioning of the mouse
         const x = e.pageX - scrollRef.current.offsetLeft;
         const walk = x - startX;
         scrollRef.current.scrollLeft = scrollLeft - walk;
@@ -62,6 +67,7 @@ const NewArrivals = () => {
 
     useEffect(()=>{
         const container = scrollRef.current;
+        //if (container is loaded with initial value of 0)
         if(container){
             container.addEventListener('scroll',updateScrollButtons)
             updateScrollButtons();
@@ -90,6 +96,7 @@ const NewArrivals = () => {
         </div>
         {/* scrollable content */}
         <div ref={scrollRef} className={`container mx-auto overflow-x-scroll flex space-x-6 relative ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+        // 'onMouse events' used when the user wants to move/Scroll pics by dragging mouse instead of clicking the scroll buttom
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUpOrLeave}
